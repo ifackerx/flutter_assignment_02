@@ -36,8 +36,8 @@ class Todo {
 }
 
 class TodoProvider {
+  
   Database db;
-
   Future open(String path) async {
     db = await openDatabase(path, version: 1,
         onCreate: (Database db, int version) async {
@@ -50,7 +50,7 @@ class TodoProvider {
       ''');
     });
   }
-
+  
   Future<Todo> insert(Todo todo) async {
     todo.id = await db.insert(tableTodo, todo.toMap());
     return todo;

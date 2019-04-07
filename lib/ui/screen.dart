@@ -15,7 +15,6 @@ class screen_state extends State<screen> {
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
@@ -41,7 +40,7 @@ class screen_state extends State<screen> {
                     labelText: "Subject :",
                     labelStyle: TextStyle(color: Colors.black),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
+                    borderSide: BorderSide(color: Colors.black),
                     ),
                   ),
                   validator: (value) {
