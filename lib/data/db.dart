@@ -10,11 +10,12 @@ class Todo {
   int id;
   String title;
   bool done;
+  
+  
   Todo();
-
   Todo.formMap(Map<String, dynamic> map) {
-    this.id = map[columnId];
     this.title = map[columnTitle];
+        this.id = map[columnId];
     this.done = map[columnDone] == 1;
   }
 
@@ -36,7 +37,6 @@ class Todo {
 }
 
 class TodoProvider {
-  
   Database db;
   Future open(String path) async {
     db = await openDatabase(path, version: 1,
@@ -50,7 +50,7 @@ class TodoProvider {
       ''');
     });
   }
-  
+
   Future<Todo> insert(Todo todo) async {
     todo.id = await db.insert(tableTodo, todo.toMap());
     return todo;
@@ -78,18 +78,18 @@ class TodoProvider {
 
   Future<List<Todo>> getAll() async {
     await this.open("todo.db");
-    var res =
+    var val =
         await db.query(tableTodo, columns: [columnId, columnTitle, columnDone]);
     List<Todo> list =
-        res.isNotEmpty ? res.map((c) => Todo.formMap(c)).toList() : [];
+        val.isNotEmpty ? val.map((c) => Todo.formMap(c)).toList() : [];
     return list;
   }
 
   Future<List<Map>> getAllString() async {
     await this.open("todo.db");
-    var res =
+    var val =
         await db.query(tableTodo, columns: [columnId, columnTitle, columnDone]);
-    return res;
+    return val;
   }
   Future close() async => db.close();
 }
