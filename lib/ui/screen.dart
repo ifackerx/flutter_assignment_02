@@ -66,9 +66,10 @@ class screen_state extends State<screen> {
                 Expanded(
                   child: FlatButton(
                     color: Colors.blue,
-                    child: Text("Submit"),
+                    child: Text("Save"),
                     onPressed: () async {
                       _formkey.currentState.validate();
+                      
                       if (_title.length > 0) {
                         await todo.open("todo.db");
                         Todo data = Todo();
@@ -78,6 +79,7 @@ class screen_state extends State<screen> {
                         myController.text = "";
                         _Finished();
                       }
+                    
                     },
                   ),
                 ),
@@ -125,8 +127,9 @@ class screen_state extends State<screen> {
           backgroundColor: Colors.white,
           title: new Text(
             "Complete",
-            textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black),
+            textAlign: TextAlign.center,
+
           ),
           content: new Text(
             "Subject is add complete",
@@ -137,7 +140,6 @@ class screen_state extends State<screen> {
             Row(
               children: <Widget>[
                 new FlatButton(
-                  
                   child: new Text("Close",style: TextStyle(color: Colors.red),),
                   onPressed: () {
                     Navigator.of(context).pop();
