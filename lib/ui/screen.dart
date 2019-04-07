@@ -76,7 +76,7 @@ class screen_state extends State<screen> {
                         data.done = false;
                         await todo.insert(data);
                         myController.text = "";
-                        _Finished();
+                        passed();
                       }
                     
                     },
@@ -90,8 +90,7 @@ class screen_state extends State<screen> {
     );
   }
 
-
-  void _Finished() {
+  void passed() {
     // flutter defined function
     Navigator.of(context).pop();
     
