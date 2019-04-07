@@ -51,7 +51,6 @@ class screen_state extends State<screen> {
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
-                      _showDialog();
                       return "Please fill Subject";
                     } else {
                       _title = value;
@@ -91,66 +90,10 @@ class screen_state extends State<screen> {
     );
   }
 
-  void _showDialog() {
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: new Text(
-            "Alert!",
-            textAlign: TextAlign.center,
-          ),
-          content: new Text("Subject field is Empty\nPlease fill Subject"),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            new FlatButton(
-              child: new Text("Close"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   void _Finished() {
     // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          title: new Text(
-            "Complete",
-            style: TextStyle(color: Colors.black),
-            textAlign: TextAlign.center,
-
-          ),
-          content: new Text(
-            "Subject is add complete",
-            style: TextStyle(color: Colors.black),
-          ),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            Row(
-              children: <Widget>[
-                new FlatButton(
-                  child: new Text("Close",style: TextStyle(color: Colors.red),),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            )
-          ],
-        );
-      },
-    );
+    Navigator.of(context).pop();
+    
   }
 }
