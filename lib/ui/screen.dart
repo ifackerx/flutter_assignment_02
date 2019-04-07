@@ -9,23 +9,29 @@ class screen extends StatefulWidget {
 }
 
 class screen_state extends State<screen> {
-  final myController = TextEditingController();
+
   String _title;
-  TodoProvider todo = TodoProvider();
+  final myController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+ 
+  TodoProvider todo = TodoProvider();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      resizeToAvoidBottomPadding: false,
+
+      resizeToAvoidBottomPadding: false, backgroundColor: Colors.white,
+      
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-        title: Text(
+         title: Text(
           "New Subject",
           style: TextStyle(color: Colors.white),
         ),
+        
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+       
       ),
       body: Column(
         children: <Widget>[
